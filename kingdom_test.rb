@@ -32,4 +32,9 @@ class KingdomTest < Minitest::Test
     kingdom = Kingdom.parse(["3 3", "1 2", "2 1", "2 3"])
     assert_equal "INFINITE PATHS", kingdom.num_paths
   end
+
+  def test_loop_including_warfare_city
+    kingdom = Kingdom.parse(["3 3", "1 3", "3 2", "2 3"])
+    assert_equal "INFINITE PATHS", kingdom.num_paths
+  end
 end
