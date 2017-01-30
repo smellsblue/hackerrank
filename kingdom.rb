@@ -1,4 +1,5 @@
 require_relative "city"
+require_relative "path_finder"
 require_relative "road"
 
 class Kingdom
@@ -18,7 +19,7 @@ class Kingdom
   end
 
   def num_paths
-    0
+    PathFinder.new(self[1], self[@cities.size]).run.size
   end
 
   def self.parse(lines)
