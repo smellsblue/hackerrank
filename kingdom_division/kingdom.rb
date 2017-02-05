@@ -14,12 +14,12 @@ class Kingdom
     @cities[city]
   end
 
-  def self.parse(lines)
-    cities, roads = lines.shift.strip.split(/\s+/).map(&:to_i)
+  def self.parse(io)
+    cities = io.gets.strip.to_i
     kingdom = Kingdom.new(cities)
 
-    roads.times do |i|
-      from, to = lines[i].strip.split(/\s+/).map(&:to_i)
+    (cities - 1).times do
+      from, to = io.gets.strip.split(/\s+/).map(&:to_i)
       kingdom[from].add_road(kingdom[to])
     end
 
