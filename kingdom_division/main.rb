@@ -2,7 +2,8 @@
 require_relative "kingdom"
 
 def main
-  kingdom = Kingdom.parse(File.readlines(ARGV.first))
+  kingdom = Kingdom.parse(STDIN)
+  puts kingdom.num_divisions
 end
 
 main
