@@ -14,6 +14,10 @@ class Kingdom
     @cities[city]
   end
 
+  def num_divisions
+    2
+  end
+
   def self.parse(io)
     cities = io.gets.strip.to_i
     kingdom = Kingdom.new(cities)
