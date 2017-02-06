@@ -1,4 +1,5 @@
 require_relative "city"
+require_relative "division_finder"
 require_relative "road"
 
 class Kingdom
@@ -6,8 +7,16 @@ class Kingdom
     @cities = {}
 
     num_cities.times do |i|
-      @cities[i + 1] = City.new
+      @cities[i + 1] = City.new(i + 1, self)
     end
+  end
+
+  def size
+    @cities.size
+  end
+
+  def cities
+    @cities.values
   end
 
   def [](city)
@@ -15,7 +24,7 @@ class Kingdom
   end
 
   def num_divisions
-    2
+    DivisionFinder.new(self).run.size
   end
 
   def self.parse(io)

@@ -1,7 +1,9 @@
 class City
-  attr_reader :roads
+  attr_reader :id, :kingdom, :roads
 
-  def initialize
+  def initialize(id, kingdom)
+    @id = id
+    @kingdom = kingdom
     @roads = []
   end
 

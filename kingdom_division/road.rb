@@ -5,4 +5,12 @@ class Road
     @from = from
     @to = to
   end
+
+  def destination(city)
+    if from == city
+      to
+    elsif to == city
+      from
+    end
+  end
 end

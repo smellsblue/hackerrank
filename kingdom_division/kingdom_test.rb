@@ -35,6 +35,28 @@ class KingdomTest < Minitest::Test
     assert_equal 2, kingdom.num_divisions
   end
 
+  def test_3_cities
+    kingdom = Kingdom.parse(StringIO.new(strip_whitespace(<<-EOS)))
+      3
+      1 2
+      2 3
+    EOS
+
+    assert_equal 2, kingdom.num_divisions
+  end
+
+  def test_5_cities
+    kingdom = Kingdom.parse(StringIO.new(strip_whitespace(<<-EOS)))
+      5
+      1 2
+      1 3
+      3 4
+      3 5
+    EOS
+
+    assert_equal 4, kingdom.num_divisions
+  end
+
   private
 
   def strip_whitespace(string)
